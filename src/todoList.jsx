@@ -10,6 +10,15 @@ export default function ToDoList({
 		.slice()
 		.sort((a, b) => b._sortId - a._sortId);
 
+	const onChangeHandler = (e, id) => {
+		onChangeListName(id, e.target.value);
+	}
+
+	const onKeyDown = (e) => {
+		if (e.keyCode === 13)
+			e.target.blur();
+	}
+
 	return (
 		<ul className='overflow-x-auto h-[calc(100%-59px)]'>
 			{sortedLists.map((list) => (
@@ -21,7 +30,8 @@ export default function ToDoList({
 						className='flex-grow font-semibold outline-none'
 						type='text'
 						value={list.name}
-						onChange={(e) => onChangeListName(e, list.id)} />
+						onChange={(e) => onChangeHandler(e, list.id)}
+						onKeyDown={onKeyDown} />
 					<span className='justify-self-end opacity-40'>{list.todos.length}</span>
 				</li>
 			))}

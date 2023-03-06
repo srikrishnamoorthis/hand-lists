@@ -1,11 +1,46 @@
 import _ from 'lodash';
 import { GoKebabHorizontal } from 'react-icons/go';
-import { FaPlus } from 'react-icons/fa'; 
+import { FaPlus } from 'react-icons/fa';
+import TodoItem from './todoItem';
 
 export default function TodoPane({
-	list
+	list,
+	addTodo,
+	editTodo,
+	deleteTodo
 }) {
 	const isListNil = _.isNil(list);
+
+	const onAddNewTodo = (e) => {
+		if (e.keyCode === 13) {
+			const value = e.target.value;
+			e.target.blur();
+			e.target.value = '';
+			addTodo(list.id, value);
+		}
+	};
+
+	const onEditTodo = (todoId, field, value) => {
+		editTodo({ listId: list.id, todoId, field, value });
+	};
+
+	const onDeleteTodo = (todoId) => {
+		deleteTodo(list.id, todoId);
+	}
+
+	const sortedTodos = list?.todos
+		.slice()
+		.sort((a, b) => b._sortId - a._sortId) || [];
+
+	const todosMarkup = <ul>
+		{sortedTodos.map(todo =>
+			<TodoItem
+				key={todo.id}
+				todo={todo}
+				onEdit={onEditTodo}
+				onDelete={onDeleteTodo} />
+		)}
+	</ul>
 
 	return (
 		<div className='border-l border-solid border-gray-400 p-4 mr-4 w-full'>
@@ -18,15 +53,16 @@ export default function TodoPane({
 							<GoKebabHorizontal className='m-auto' />
 						</button>
 					</div>
-					<div className='flex items-center gap-4 mt-6'>
-						<FaPlus className='opacity-40'/>
+					<div className='flex items-center gap-4 mt-10 mb-4'>
+						<FaPlus className='opacity-40' />
 						<input
 							type="text"
 							className='outline-none'
 							placeholder='New To-Do'
-							// onChange={}
+							onKeyDown={onAddNewTodo}
 						/>
 					</div>
+					{todosMarkup}
 				</>
 
 			}
