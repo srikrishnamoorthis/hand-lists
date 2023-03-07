@@ -9,6 +9,7 @@ export default function TodoItem({
 	const [desc, setDesc] = useState(todo.desc);
 	const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
 	const [hovered, setHovered] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
 
 	const onChangeDesc = (e) => {
 		setDesc(e.target.value);
@@ -30,6 +31,7 @@ export default function TodoItem({
 	const onBlur = (e) => {
 		const value = e.target.value;
 		e.target.blur();
+        setIsFocused(false);
 		onEdit(todo.id, 'desc', value);
 	}
 
@@ -38,20 +40,23 @@ export default function TodoItem({
 			className='flex gap-4 items-center py-2'
 			onMouseOver={() => setHovered(true)}
 			onMouseOut={() => setHovered(false)}>
-			<input type='checkbox'
+			<input 
+                type='checkbox'
+                className='rounded-full'
 				checked={isCompleted}
 				onChange={onChangeCheckbox}
 			/>
 			<input
 				type="text"
-				className='outline-none'
+				className='outline-none flex-grow'
 				value={desc}
+                onFocus={() => setIsFocused(true)}
 				onChange={e => onChangeDesc(e)}
 				onBlur={onBlur}
 				onKeyDown={onKeyDown}
 			/>
 			{
-				hovered && <FaTrashAlt
+				hovered && !isFocused && <FaTrashAlt
 					className='text-red-500 cursor-pointer'
 					onClick={() => onDelete(todo.id)} />
 			}

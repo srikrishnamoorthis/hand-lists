@@ -5,7 +5,7 @@ export function useTodoManager() {
 	const [state, dispatch] = useReducer(todosReducer, {}, initializeState);
 
 	const addList = () => {
-		dispatch({ type: types.ADD_LIST_ITEM });
+		dispatch({ type: types.ADD_LIST });
 	}
 
 	const editListName = (id, value) => {
@@ -28,6 +28,10 @@ export function useTodoManager() {
 		dispatch({ type: types.DELETE_TODO, listId, todoId });
 	}
 
+    const deleteList = (listId) => {
+        dispatch({ type: types.DELETE_LIST, listId });
+    }
+
 	return {
 		state,
 		addList,
@@ -35,6 +39,7 @@ export function useTodoManager() {
 		onSelectListItem,
 		addTodo,
 		editTodo,
-		deleteTodo
+		deleteTodo,
+        deleteList
 	};
 }

@@ -1,4 +1,12 @@
 import { produce } from 'immer';
+import flowers from '../assets/flowers.jpg';
+import lake from '../assets/lake.jpg';
+import nature from '../assets/nature.jpg';
+import nature2 from '../assets/nature-2.jpg';
+import sand from '../assets/sand.jpg';
+import sunset from '../assets/sunset.jpg';
+
+const images = [ flowers, nature, nature2, sand, sunset, lake];
 
 function initializeState() {
 	return {
@@ -8,9 +16,10 @@ function initializeState() {
 };
 
 const types = {
-	ADD_LIST_ITEM: 'ADD_LIST_ITEM',
+	ADD_LIST: 'ADD_LIST',
 	CHANGE_LIST_NAME: 'CHANGE_LIST_NAME',
 	SET_SELECTED_LIST: 'SET_SELECTED_LIST',
+    DELETE_LIST: 'DELETE_LIST',
 	ADD_NEW_TODO: 'ADD_NEW_TODO',
 	EDIT_TODO: 'EDIT_TODO',
 	DELETE_TODO: 'DELETE_TODO',
@@ -18,7 +27,7 @@ const types = {
 
 const todosReducer = produce((draft, action) => {
 	switch (action.type) {
-		case types.ADD_LIST_ITEM: {
+		case types.ADD_LIST: {
 			draft.lists.push(getNewListItem(draft.lists));
 			break;
 		}
@@ -44,6 +53,15 @@ const todosReducer = produce((draft, action) => {
 			break;
 		}
 
+        case types.DELETE_LIST: {
+            const listIndex = findItemIndex(draft.lists, action.listId);
+            draft.lists = [
+                ...draft.lists.slice(0, listIndex),
+                ...draft.lists.slice(listIndex + 1)
+            ];
+            break;
+        }
+        
 		case types.EDIT_TODO: {
 			const { listId, todoId, field, value } = action;
 			const listIndex = findItemIndex(draft.lists, listId);
@@ -79,7 +97,8 @@ function getNewListItem(lists) {
 		id,
 		name: `List #${id}`,
 		todos: [],
-		_sortId: lists.length + 1
+		_sortId: lists.length + 1,
+        image: images[Math.round(Math.random() * 10) % images.length]
 	}
 }
 

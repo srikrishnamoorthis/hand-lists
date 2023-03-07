@@ -10,7 +10,8 @@ function App() {
 		editTodo,
 		editListName,
 		onSelectListItem,
-		deleteTodo
+		deleteTodo,
+        deleteList
 	} = useTodoManager();
 
 	const selectedList = state.lists && state.lists.find(list => list.id === state.selectedListId);
@@ -24,14 +25,16 @@ function App() {
 				onChangeListName={editListName}
 				onSelectListItem={onSelectListItem}
 			/>
-			<TodoPane
-				list={selectedList}
-				onChangeListName={editListName}
-				deleteList={() => {}}
-				addTodo={addTodo}
-				editTodo={editTodo}
-				deleteTodo={deleteTodo}
-			/>
+            <div className='border-l border-solid border-gray-400 w-full'>
+                <TodoPane
+                    list={selectedList}
+                    onChangeListName={editListName}
+                    deleteList={deleteList}
+                    addTodo={addTodo}
+                    editTodo={editTodo}
+                    deleteTodo={deleteTodo}
+                />
+            </div>
 		</div>
 	);
 }
