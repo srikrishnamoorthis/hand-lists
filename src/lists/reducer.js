@@ -1,10 +1,10 @@
 import { produce } from 'immer';
-import flowers from '../assets/flowers.jpg';
-import lake from '../assets/lake.jpg';
-import nature from '../assets/nature.jpg';
-import nature2 from '../assets/nature-2.jpg';
-import sand from '../assets/sand.jpg';
-import sunset from '../assets/sunset.jpg';
+import flowers from '../../assets/flowers.jpg';
+import lake from '../../assets/lake.jpg';
+import nature from '../../assets/nature.jpg';
+import nature2 from '../../assets/nature-2.jpg';
+import sand from '../../assets/sand.jpg';
+import sunset from '../../assets/sunset.jpg';
 
 const images = [ flowers, nature, nature2, sand, sunset, lake];
 
@@ -25,7 +25,7 @@ const types = {
 	DELETE_TODO: 'DELETE_TODO',
 };
 
-const todosReducer = produce((draft, action) => {
+const reducer = produce((draft, action) => {
 	switch (action.type) {
 		case types.ADD_LIST: {
 			draft.lists.push(getNewListItem(draft.lists));
@@ -83,7 +83,7 @@ const todosReducer = produce((draft, action) => {
 	}
 });
 
-export { types, todosReducer, initializeState };
+export { types, reducer, initializeState };
 
 // Private util functions
 

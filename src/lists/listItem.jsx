@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
-export default function TodoItem({
+export default function ListItem({
 	todo = {},
 	onEdit,
 	onDelete

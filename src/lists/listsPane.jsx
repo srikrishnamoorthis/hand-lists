@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { ImSearch } from 'react-icons/im';
 import { FaPlus } from 'react-icons/fa';
-import ToDoList from './todoList';
+import Lists from './lists';
 
-export default function TodoListPane({
+export default function ListsPane({
 	lists,
 	addList,
 	onChangeListName,
@@ -31,7 +31,7 @@ export default function TodoListPane({
 					<FaPlus />
 				</button>
 			</div>
-			<ToDoList 
+			<Lists 
 				lists={filteredList}
 				onChangeListName={onChangeListName}
 				onSelectListItem={onSelectListItem}

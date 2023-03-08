@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaListUl } from 'react-icons/fa';
 
-export default function ToDoList({
+export default function Lists({
 	lists = [],
 	onChangeListName,
 	onSelectListItem

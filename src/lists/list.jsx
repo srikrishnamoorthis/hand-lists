@@ -2,10 +2,9 @@ import _ from 'lodash';
 import { useState } from 'react';
 import { GoKebabHorizontal } from 'react-icons/go';
 import { FaPlus, FaTrashAlt } from 'react-icons/fa';
+import ListItem from './listItem';
 
-import TodoItem from './todoItem';
-
-export default function TodoPane({
+export default function List({
     list,
     addTodo,
     editTodo,
@@ -43,7 +42,7 @@ export default function TodoPane({
 
     const todosMarkup = <ul>
         {sortedTodos.map(todo =>
-            <TodoItem
+            <ListItem
                 key={todo.id}
                 todo={todo}
                 onEdit={onEditTodo}

@@ -1,42 +1,28 @@
-import TodoListPane from './todoListPane';
-import TodoPane from './todoPane';
-import { useTodoManager } from './useTodoManager';
+import { useState } from 'react';
+import Nav from './nav';
+import ListsPage from './lists/index';
+
+
+const tabs = [
+    { key: 'LIST', value: 'Lists' },
+    { key: 'CALENDER', value: 'Calender' }
+];
 
 function App() {
-	const {
-		state,
-		addList,
-		addTodo,
-		editTodo,
-		editListName,
-		onSelectListItem,
-		deleteTodo,
-        deleteList
-	} = useTodoManager();
+    const [activeTab, setActivetab] = useState(tabs[0].key);
+    const isListTabActive = activeTab === 'LIST';
+    // const isCalenderTabActive = activeTab === 'CALENDER';
 
-	const selectedList = state.lists && state.lists.find(list => list.id === state.selectedListId);
-
-	return (
-		<div className='h-full flex'>
-			{/* <div className='bg-gray-200'>Item 1</div> */}
-			<TodoListPane
-				lists={state.lists}
-				addList={addList}
-				onChangeListName={editListName}
-				onSelectListItem={onSelectListItem}
-			/>
-            <div className='border-l border-solid border-gray-400 w-full'>
-                <TodoPane
-                    list={selectedList}
-                    onChangeListName={editListName}
-                    deleteList={deleteList}
-                    addTodo={addTodo}
-                    editTodo={editTodo}
-                    deleteTodo={deleteTodo}
-                />
-            </div>
-		</div>
-	);
+    return (
+        <div className='h-full flex'>
+            <Nav
+                activeTab={activeTab}
+                updateTab={setActivetab}
+                tabs={tabs}
+            />
+            {isListTabActive && <ListsPage />}
+        </div>
+    );
 }
 
 export default App;

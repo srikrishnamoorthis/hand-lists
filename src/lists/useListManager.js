@@ -1,8 +1,8 @@
 import { useReducer } from 'react';
-import { types, todosReducer, initializeState } from './todosReducer';
+import { types, reducer, initializeState } from './reducer';
 
-export function useTodoManager() {
-	const [state, dispatch] = useReducer(todosReducer, {}, initializeState);
+export function useListManager() {
+	const [state, dispatch] = useReducer(reducer, {}, initializeState);
 
 	const addList = () => {
 		dispatch({ type: types.ADD_LIST });
