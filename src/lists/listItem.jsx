@@ -48,7 +48,7 @@ export default function ListItem({
 			/>
 			<input
 				type="text"
-				className='outline-none flex-grow'
+				className='outline-none flex-grow dark:bg-[#1C2139]'
 				value={desc}
                 onFocus={() => setIsFocused(true)}
 				onChange={e => onChangeDesc(e)}

@@ -10,11 +10,12 @@ const tabs = [
 
 function App() {
     const [activeTab, setActivetab] = useState(tabs[0].key);
+
     const isListTabActive = activeTab === 'LIST';
     // const isCalenderTabActive = activeTab === 'CALENDER';
 
     return (
-        <div className='h-full flex'>
+        <div className='h-full flex flex-col lg:flex-row'>
             <Nav
                 activeTab={activeTab}
                 updateTab={setActivetab}

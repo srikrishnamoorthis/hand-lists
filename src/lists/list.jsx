@@ -62,14 +62,14 @@ export default function List({
                 <div className='flex items-center'>
                     <h1 className='text-4xl font-semibold flex-grow'>{list.name}</h1>
                     <div className='relative'>
-                        <button className='bg-gray-200 rounded-full h-8 w-8'>
+                        <button className='bg-gray-200 dark:bg-[#2a3350] rounded-full h-8 w-8'>
                             <GoKebabHorizontal
                                 className='m-auto'
                                 onClick={() => setShowListOptions(!showListOptions)}
                             />
                         </button>
                         {showListOptions && 
-                            <ul className='absolute border border-solid right-2 min-w-[125px] top-5 bg-white'>
+                            <ul className='absolute border border-solid right-2 min-w-[125px] top-5 bg-white dark:bg-[#252D48] dark:border-[#252D48]'>
                                 <li className='px-2 py-2 cursor-pointer flex gap-2 items-center'
                                     onClick={onDeleteList}>
                                     <FaTrashAlt className='text-red-500'/>
@@ -82,7 +82,7 @@ export default function List({
                     <FaPlus className='opacity-40' />
                     <input
                         type="text"
-                        className='outline-none flex-grow'
+                        className='outline-none flex-grow dark:bg-[#1C2139]'
                         placeholder='New To-Do'
                         onKeyDown={onAddNewTodo}
                     />
