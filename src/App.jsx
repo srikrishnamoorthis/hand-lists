@@ -15,7 +15,7 @@ function App() {
     // const isCalenderTabActive = activeTab === 'CALENDER';
 
     return (
-        <div className='h-full flex flex-col lg:flex-row'>
+        <div className='h-full flex flex-col lg:flex-row transition-colors duration-1000 ease-linear'>
             <Nav
                 activeTab={activeTab}
                 updateTab={setActivetab}

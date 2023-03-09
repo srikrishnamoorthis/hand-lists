@@ -28,7 +28,9 @@ const types = {
 const reducer = produce((draft, action) => {
 	switch (action.type) {
 		case types.ADD_LIST: {
-			draft.lists.push(getNewListItem(draft.lists));
+            const listItem = getNewListItem(draft.lists)
+			draft.lists.push(listItem);
+            draft.selectedListId = listItem.id;
 			break;
 		}
 
@@ -59,6 +61,8 @@ const reducer = produce((draft, action) => {
                 ...draft.lists.slice(0, listIndex),
                 ...draft.lists.slice(listIndex + 1)
             ];
+            if (draft.lists.length)
+                draft.selectedListId = draft.lists[draft.lists.length - 1].id;
             break;
         }
         

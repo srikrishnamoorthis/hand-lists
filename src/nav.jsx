@@ -40,7 +40,7 @@ function Nav({
                 <label className='inline-block relative cursor-pointer' htmlFor='toggle-btn'>
                     <input id='toggle-btn' type='checkbox' className='sr-only peer' onClick={changeTheme}/>
                     <div className='bg-gray-400 w-12 h-6 rounded-xl peer-checked:bg-blue-500 flex justify-between items-center dark:peer-checked:bg-[#1C2139]'>
-                        <FaMoon className='ml-1'/>
+                        <FaMoon className='ml-1.5 text-gray-300 text-sm'/>
                         <FaSun className='mr-1'/>
                     </div>
                     <div className='absolute inset-0 bg-white w-6 h-6 rounded-full transition-all duration-300 peer-checked:translate-x-6'></div>

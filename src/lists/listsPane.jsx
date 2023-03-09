@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ImSearch } from 'react-icons/im';
 import { FaPlus } from 'react-icons/fa';
 import Lists from './lists';
+import _ from 'lodash';
 
 export default function ListsPane({
 	lists,
@@ -10,6 +11,7 @@ export default function ListsPane({
 	onSelectListItem
 }) {
 	const [filterText, setFilterText] = useState('');
+
 	const filteredList = lists?.filter(item => item?.name.toLowerCase().includes(filterText.toLowerCase()));
 
 	const onChangeSearch = (e) => {
