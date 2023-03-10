@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
@@ -42,13 +43,13 @@ export default function ListItem({
 			onMouseOut={() => setHovered(false)}>
 			<input 
                 type='checkbox'
-                className='rounded-full'
+                className={classnames('rounded-full transition-all duration-1000', { 'opacity-30 line-through': isCompleted})}
 				checked={isCompleted}
 				onChange={onChangeCheckbox}
 			/>
 			<input
 				type="text"
-				className='outline-none flex-grow dark:bg-[#1C2139]'
+				className={classnames('outline-none flex-grow dark:bg-[#1C2139] transition-all duration-1000',  { 'opacity-30 line-through': isCompleted})}
 				value={desc}
                 onFocus={() => setIsFocused(true)}
 				onChange={e => onChangeDesc(e)}

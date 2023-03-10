@@ -19,7 +19,7 @@
                 {
                     "id": "1_3",
                     "desc": "Meditate for 10 mins",
-                    "isCompleted": false,
+                    "isCompleted": true,
                     "_sortId": 3
                 }
             ],

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { useState } from 'react';
 import { GoKebabHorizontal } from 'react-icons/go';
-import { FaPlus, FaTrashAlt } from 'react-icons/fa';
+import { FaPlus, FaTrashAlt, FaCheck } from 'react-icons/fa';
 import ListItem from './listItem';
 
 export default function List({
@@ -50,15 +50,16 @@ export default function List({
         )}
     </ul>
 
+    const completedTodos = list.todos.filter(todo => todo.isCompleted);
     if (isListNil)
         return;
 
     return (
-        <div className=''>
+        <div className='h-full'>
             <figure>
                 <img src={list.image} className='h-40 w-full object-cover' />
             </figure>
-            <div className='p-4 mr-4'>
+            <div className='p-4 mr-4 flex flex-col h-[calc(100%-10rem)]'>
                 <div className='flex items-center'>
                     <h1 className='text-4xl font-semibold flex-grow'>{list.name}</h1>
                     <div className='relative'>
@@ -88,6 +89,10 @@ export default function List({
                     />
                 </div>
                 {todosMarkup}
+                <div className='mt-auto opacity-30'>
+                    <FaCheck className='inline-block'/>
+                    <span className='ml-2'>{completedTodos.length} to-dos completed</span>
+                </div>
             </div>
         </div>
     )
