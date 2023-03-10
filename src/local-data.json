@@ -1,0 +1,189 @@
+{
+    "lists": [
+        {
+            "id": 1,
+            "name": "Things to do",
+            "todos": [
+                {
+                    "id": "1_1",
+                    "desc": "Learn a new language",
+                    "isCompleted": false,
+                    "_sortId": 1
+                },
+                {
+                    "id": "1_2",
+                    "desc": "Buy a new phone",
+                    "isCompleted": false,
+                    "_sortId": 2
+                },
+                {
+                    "id": "1_3",
+                    "desc": "Meditate for 10 mins",
+                    "isCompleted": false,
+                    "_sortId": 3
+                }
+            ],
+            "_sortId": 4,
+            "image": "../assets/nature.jpg" 
+        },
+        {
+            "id": 2,
+            "name": "Groceries",
+            "todos": [
+                {
+                    "id": "2_1",
+                    "desc": "Milk",
+                    "isCompleted": false,
+                    "_sortId": 1
+                },
+                {
+                    "id": "2_2",
+                    "desc": "Water",
+                    "isCompleted": false,
+                    "_sortId": 2
+                },
+                {
+                    "id": "2_3",
+                    "desc": "Sugar",
+                    "isCompleted": false,
+                    "_sortId": 3
+                },
+                {
+                    "id": "2_4",
+                    "desc": "Eggs",
+                    "isCompleted": false,
+                    "_sortId": 4
+                },
+                {
+                    "id": "2_5",
+                    "desc": "Carrot",
+                    "isCompleted": false,
+                    "_sortId": 5
+                },
+                {
+                    "id": "2_6",
+                    "desc": "Apple",
+                    "isCompleted": false,
+                    "_sortId": 6
+                },
+                {
+                    "id": "2_7",
+                    "desc": "Oranges",
+                    "isCompleted": false,
+                    "_sortId": 7
+                }
+            ],
+            "_sortId": 5,
+            "image": "../assets/nature-2.jpg" 
+        },
+        {
+            "id": 3,
+            "name": "Books to read",
+            "todos": [
+                {
+                    "id": "4_1",
+                    "desc": "Karamazov brothers",
+                    "isCompleted": false,
+                    "_sortId": 1
+                },
+                {
+                    "id": "4_2",
+                    "desc": "Song of Ice and Fire",
+                    "isCompleted": false,
+                    "_sortId": 2
+                },
+                {
+                    "id": "4_3",
+                    "desc": "Ikigai",
+                    "isCompleted": false,
+                    "_sortId": 3
+                },
+                {
+                    "id": "4_4",
+                    "desc": "The Alchemist",
+                    "isCompleted": false,
+                    "_sortId": 4
+                }
+            ],
+            "_sortId": 3,
+            "image": "../assets/sunset.jpg" 
+        },
+        {
+            "id": 4,
+            "name": "At Home",
+            "todos": [
+                {
+                    "id": "4_1",
+                    "desc": "Fix Wi-Fi router",
+                    "isCompleted": false,
+                    "_sortId": 1
+                },
+                {
+                    "id": "4_2",
+                    "desc": "Pay monthly bill for internet",
+                    "isCompleted": false,
+                    "_sortId": 2
+                },
+                {
+                    "id": "4_3",
+                    "desc": "Organize book shelf",
+                    "isCompleted": false,
+                    "_sortId": 3
+                },
+                {
+                    "id": "4_4",
+                    "desc": "Hang wall picture",
+                    "isCompleted": false,
+                    "_sortId": 4
+                }
+            ],
+            "_sortId": 6,
+            "image": "../assets/nature.jpg" 
+        },
+        {
+            "id": 5,
+            "name": "Movies to watch",
+            "todos": [
+                {
+                    "id": "5_1",
+                    "desc": "13 hours: secret soldiers of benghazi",
+                    "isCompleted": false,
+                    "_sortId": 1
+                },
+                {
+                    "id": "5_2",
+                    "desc": "Black hawk down",
+                    "isCompleted": false,
+                    "_sortId": 2
+                },
+                {
+                    "id": "5_3",
+                    "desc": "Fight club",
+                    "isCompleted": false,
+                    "_sortId": 3
+                },
+                {
+                    "id": "5_4",
+                    "desc": "Seven",
+                    "isCompleted": false,
+                    "_sortId": 4
+                },
+                {
+                    "id": "5_5",
+                    "desc": "The Outpost",
+                    "isCompleted": false,
+                    "_sortId": 4
+                }
+            ],
+            "_sortId": 2,
+            "image": "../assets/lake.jpg" 
+        },
+        {
+            "id": 6,
+            "name": "France 2024",
+            "todos": [],
+            "_sortId": 1,
+            "image": "../assets/sand.jpg" 
+        }
+    ]
+}

@@ -5,13 +5,15 @@ import nature from '../../assets/nature.jpg';
 import nature2 from '../../assets/nature-2.jpg';
 import sand from '../../assets/sand.jpg';
 import sunset from '../../assets/sunset.jpg';
+import _ from 'lodash';
 
 const images = [ flowers, nature, nature2, sand, sunset, lake];
 
-function initializeState() {
+function initializeState({ initialData }) {
+    const { lists = [] } = initialData;
 	return {
-		lists: [],
-		selectedListId: undefined
+		lists,
+		selectedListId: lists[0]?.id
 	}
 };
 

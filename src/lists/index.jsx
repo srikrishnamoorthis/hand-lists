@@ -6,6 +6,7 @@ import ListsPane from './listsPane';
 import List from './list';
 import { useListManager } from './useListManager';
 import { useOnWindowResize } from '../common/useOnWindowResize';
+import localData from '../local-data.json';
 
 export default function ListsPage() {
     const {
@@ -17,7 +18,7 @@ export default function ListsPage() {
         onSelectListItem: _onSelectListItem,
         deleteTodo,
         deleteList
-    } = useListManager();
+    } = useListManager({ initialData: localData });
 
     const [width, setWidth] = useState(window.innerWidth);
     const [prevWidth, setPrevWidth] = useState(width);
