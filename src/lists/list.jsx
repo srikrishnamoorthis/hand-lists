@@ -3,6 +3,14 @@ import { useState } from 'react';
 import { GoKebabHorizontal } from 'react-icons/go';
 import { FaPlus, FaTrashAlt, FaCheck } from 'react-icons/fa';
 import ListItem from './listItem';
+// import flowers from '../assets/flowers.jpg';
+// import lake from '../assets/lake.jpg';
+// import nature from '../assets/nature.jpg';
+// import nature2 from '../assets/nature-2.jpg';
+// import sand from '../assets/sand.jpg';
+// import sunset from '../assets/sunset.jpg';
+
+// const images = [ flowers, nature, nature2, sand, sunset, lake];
 
 export default function List({
     list,
@@ -53,11 +61,11 @@ export default function List({
     const completedTodos = list.todos.filter(todo => todo.isCompleted);
     if (isListNil)
         return;
-
+   
     return (
         <div className='h-full'>
             <figure>
-                <img src={list.image} className='h-40 w-full object-cover' />
+                <img src={getImageUrl(list.image)} className='h-40 w-full object-cover' />
             </figure>
             <div className='p-4 mr-4 flex flex-col h-[calc(100%-10rem)]'>
                 <div className='flex items-center'>
@@ -96,4 +104,8 @@ export default function List({
             </div>
         </div>
     )
+}
+
+function getImageUrl(name) {
+  return new URL(`../assets/${name}.jpg`, import.meta.url).href;
 }

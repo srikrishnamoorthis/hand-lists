@@ -1,13 +1,7 @@
 import { produce } from 'immer';
-import flowers from '../../assets/flowers.jpg';
-import lake from '../../assets/lake.jpg';
-import nature from '../../assets/nature.jpg';
-import nature2 from '../../assets/nature-2.jpg';
-import sand from '../../assets/sand.jpg';
-import sunset from '../../assets/sunset.jpg';
 import _ from 'lodash';
 
-const images = [ flowers, nature, nature2, sand, sunset, lake];
+const images = [ 'flowers', 'nature', 'nature-2', 'sand', 'sunset', 'lake'];
 
 function initializeState({ initialData }) {
     const { lists = [] } = initialData;
@@ -104,7 +98,7 @@ function getNewListItem(lists) {
 		name: `List #${id}`,
 		todos: [],
 		_sortId: lists.length + 1,
-        image: images[Math.round(Math.random() * 10) % images.length]
+        image: images[Math.round(Math.random() * 10) % images.length], 
 	}
 }
 
